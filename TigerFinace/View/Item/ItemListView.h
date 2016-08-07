@@ -12,8 +12,6 @@
 @interface ItemListView : BasicView
 
 @property (strong , nonatomic , nonnull) UITableView *itemListTabelView;
-@property (strong , nonatomic , nonnull) UIPickerView *pickerView;//选择器弹出框
-@property (strong , nonatomic , nonnull) UIButton *sureButton;//确认按钮
 
 @property (copy , nonatomic , nonnull) sendUIViewBlock sendSegmentBlock;
 

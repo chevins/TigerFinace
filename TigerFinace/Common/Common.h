@@ -19,6 +19,7 @@
 #define RGBAColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
 
 #define COLOR_Background RGBAColor(243,244,245,1)
+#define COLOR_SeparatorLine RGBAColor(222,223,224,1)
 #define COLOR_Background_LightGray RGBAColor(237,238,239,1)
 #define COLOR_Orange RGBAColor(251,168,42,1)
 #define COLOR_Red RGBAColor(249,80,82,1)

@@ -25,7 +25,10 @@
     NSArray *_selectedDataArray;
     NSMutableArray *_itemData;
     NSInteger _page;
+    
 }
+@property (strong , nonatomic) UIPickerView *pickerView;
+@property (strong , nonatomic) UIButton *sureButton;
 
 @end
 
@@ -62,13 +65,6 @@
     [shareButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:shareButton];
     
-    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    backButton.frame = CGRectMake(0, 0, 15, 20);
-    backButton.tag = 1003;
-    [backButton setBackgroundImage:[UIImage imageNamed:@"back_red_icon"] forState:UIControlStateNormal];
-    [backButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    
     __weak ItemListViewController *controller = self;
     _view = [[ItemListView alloc] initWithFrame:CGRectMake(0, 64, SCREENWIDTH, SCREENHEIGHT-64-49)];
     
@@ -80,12 +76,7 @@
     _view.itemListTabelView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerStartReresh)];
     //上拉加载
     _view.itemListTabelView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerStartRefresh)];
- 
     
-    _view.pickerView.delegate = self;
-    _view.pickerView.dataSource = self;
-    
-
     _view.sendButtonBlock = ^(UIButton *button) {
         [controller buttonClick:button];
     };
@@ -147,8 +138,7 @@
     segButton.backgroundColor = [UIColor clearColor];
     
     //显示选择器
-    _view.pickerView.hidden = NO;
-    _view.sureButton.hidden = NO;
+    [self showPickerView];
    
     switch (segButton.tag) {
         case 100: {
@@ -170,7 +160,7 @@
         } break;
     }
     
-    [_view.pickerView reloadComponent:0];
+    [self.pickerView reloadComponent:0];
 }
 
 - (void)buttonClick:(UIButton *)button {
@@ -178,8 +168,8 @@
         
         case 1001: {
         //选择器确定按钮
-            _view.pickerView.hidden = YES;
-            button.hidden = YES;
+            [self.pickerView removeFromSuperview];
+            [button removeFromSuperview];
         }break;
         
         case 1002: {
@@ -188,16 +178,6 @@
            
           
         }break;
-            
-        case 1003: {
-            //返回按钮
-            [self.navigationController popViewControllerAnimated:YES];
-            
-            
-        }break;
-            
-        default:
-            break;
     }
 }
 
@@ -272,6 +252,45 @@
     [_view.itemListTabelView.mj_footer endRefreshing];
     [SVProgressHUD dismiss];
 }
+
+
+
+-(void)showPickerView {
+    [self.pickerView removeFromSuperview];
+    [self.sureButton removeFromSuperview];
+    self.pickerView = nil;
+    self.sureButton = nil;
+    
+    if (self.pickerView == nil) {
+        self.pickerView = [[UIPickerView alloc] init];
+        [_view addSubview:self.pickerView];
+        [self.pickerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(_view.mas_bottom);
+            make.left.equalTo(_view.mas_left);
+            make.right.equalTo(_view.mas_right);
+            make.height.mas_equalTo(@(120*HEIGHT_Rate));
+        }];
+        self.pickerView.delegate = self;
+        self.pickerView.dataSource = self;
+        self.pickerView.backgroundColor = COLOR_Background;
+        [_view addSubview:self.pickerView];
+        
+        
+        self.sureButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_view addSubview:self.sureButton];
+        [self.sureButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.pickerView.mas_top).with.offset(4*HEIGHT_Rate);
+            make.right.equalTo(self.pickerView.mas_right).with.offset(-8);
+            make.size.mas_equalTo(CGSizeMake(60, 25));
+        }];
+        [self.sureButton setTitle:@"确定" forState:UIControlStateNormal];
+        [self.sureButton setTitleColor:COLOR_Green forState:UIControlStateNormal];
+        self.sureButton.titleLabel.font = [UIFont systemFontOfSize:14*HEIGHT_Rate];
+        self.sureButton.tag = 1001;
+        [self.sureButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

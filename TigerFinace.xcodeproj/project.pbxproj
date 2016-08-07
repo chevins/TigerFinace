@@ -24,7 +24,6 @@
 		1148DC831D41260C003556D8 /* TigerFinaceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148DC821D41260C003556D8 /* TigerFinaceUITests.m */; };
 		1148DC961D412993003556D8 /* CommonNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148DC951D412993003556D8 /* CommonNavigationController.m */; };
 		1148DCA61D412A51003556D8 /* FeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148DC9F1D412A50003556D8 /* FeatureViewController.m */; };
-		1148DCA71D412A51003556D8 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148DCA21D412A50003556D8 /* ItemViewController.m */; };
 		1148DCA81D412A51003556D8 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148DCA51D412A51003556D8 /* MineViewController.m */; };
 		1148DCAF1D412F1C003556D8 /* BasicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148DCAE1D412F1C003556D8 /* BasicView.m */; };
 		1148DCB21D412F72003556D8 /* FeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148DCB11D412F72003556D8 /* FeatureView.m */; };
@@ -207,8 +206,6 @@
 		1148DC951D412993003556D8 /* CommonNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNavigationController.m; sourceTree = "<group>"; };
 		1148DC9E1D412A50003556D8 /* FeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureViewController.h; sourceTree = "<group>"; };
 		1148DC9F1D412A50003556D8 /* FeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureViewController.m; sourceTree = "<group>"; };
-		1148DCA11D412A50003556D8 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
-		1148DCA21D412A50003556D8 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
 		1148DCA41D412A51003556D8 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		1148DCA51D412A51003556D8 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		1148DCAD1D412F1C003556D8 /* BasicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicView.h; sourceTree = "<group>"; };
@@ -583,8 +580,6 @@
 		1148DCA01D412A50003556D8 /* Item */ = {
 			isa = PBXGroup;
 			children = (
-				1148DCA11D412A50003556D8 /* ItemViewController.h */,
-				1148DCA21D412A50003556D8 /* ItemViewController.m */,
 				1181657E1D47D47800639DD7 /* ItemListViewController.h */,
 				1181657F1D47D47800639DD7 /* ItemListViewController.m */,
 			);
@@ -1263,7 +1258,6 @@
 				118165861D47D78000639DD7 /* ItemListCell.m in Sources */,
 				118165DC1D4BE5B300639DD7 /* SDWebImageDownloader.m in Sources */,
 				1148DFF11D42A52C003556D8 /* MASViewAttribute.m in Sources */,
-				1148DCA71D412A51003556D8 /* ItemViewController.m in Sources */,
 				118165B31D4BE4CD00639DD7 /* SDCycleScrollView.m in Sources */,
 				118165E41D4BE5B300639DD7 /* UIImageView+HighlightedWebCache.m in Sources */,
 				118165D81D4BE5B300639DD7 /* NSData+ImageContentType.m in Sources */,

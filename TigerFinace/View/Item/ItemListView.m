@@ -65,32 +65,7 @@
     self.itemListTabelView = [[UITableView alloc] initWithFrame:CGRectMake(0, 43*HEIGHT_Rate, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-64-49-43*HEIGHT_Rate)];
     [self addSubview:self.itemListTabelView];
     self.itemListTabelView.backgroundColor = COLOR_Background;
-    
-    
-    self.pickerView = [[UIPickerView alloc] init];
-    [self addSubview:self.pickerView];
-    [self.pickerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(_view.mas_bottom);
-        make.left.equalTo(_view.mas_left);
-        make.right.equalTo(_view.mas_right);
-        make.height.mas_equalTo(@(120*HEIGHT_Rate));
-    }];
-    self.pickerView.backgroundColor = COLOR_Background;
-    self.pickerView.hidden = YES;
-    
-    self.sureButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self addSubview:self.sureButton];
-    [self.sureButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.pickerView.mas_top).with.offset(4*HEIGHT_Rate);
-        make.right.equalTo(self.pickerView.mas_right).with.offset(-8);
-        make.size.mas_equalTo(CGSizeMake(60, 25));
-    }];
-    [self.sureButton setTitle:@"确定" forState:UIControlStateNormal];
-    [self.sureButton setTitleColor:COLOR_Green forState:UIControlStateNormal];
-    self.sureButton.titleLabel.font = [UIFont systemFontOfSize:14*HEIGHT_Rate];
-    self.sureButton.tag = 1001;
-    [self.sureButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-    self.sureButton.hidden = YES;
+    self.itemListTabelView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
 }
 

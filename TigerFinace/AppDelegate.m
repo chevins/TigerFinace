@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "CommonNavigationController.h"
 #import "FeatureViewController.h"
-#import "ItemViewController.h"
+#import "ItemListViewController.h"
 #import "MineViewController.h"
 
 @interface AppDelegate ()
@@ -36,8 +36,8 @@
     featureViewController.tabBarItem.image = [UIImage imageNamed:@"feature"];
     CommonNavigationController *navFeature = [[CommonNavigationController alloc] initWithRootViewController:featureViewController];
     
-    ItemViewController *itemViewController = [[ItemViewController alloc] init];
-    itemViewController.title = @"项目";
+    ItemListViewController *itemViewController = [[ItemListViewController alloc] init];
+    itemViewController.title = @"项目列表";
     itemViewController.tabBarItem.image = [UIImage imageNamed:@"item"];
     CommonNavigationController *navItem = [[CommonNavigationController alloc] initWithRootViewController:itemViewController];
     

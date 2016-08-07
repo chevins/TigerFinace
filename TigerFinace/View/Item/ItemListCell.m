@@ -50,6 +50,16 @@
     }];
     whiteView.backgroundColor = [UIColor whiteColor];
     
+    UIView *topLineView = [[UIView alloc] init];
+    [whiteView addSubview:topLineView];
+    [topLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(whiteView.mas_top);
+        make.left.equalTo(whiteView.mas_left);
+        make.right.equalTo(whiteView.mas_right);
+        make.height.mas_equalTo(@1);
+    }];
+    topLineView.backgroundColor = COLOR_SeparatorLine;
+    
     self.colorView = [[UIView alloc] init];
     [self.contentView addSubview:self.colorView];
     [self.colorView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -94,9 +104,9 @@
         make.left.equalTo(self.colorView.mas_right).with.offset(10);
         make.right.equalTo(_view.mas_right);
         make.top.equalTo(self.itemLabel.mas_bottom).with.offset(4);
-        make.height.mas_equalTo(@0.6);
+        make.height.mas_equalTo(@1);
     }];
-    lineView.backgroundColor = [UIColor lightGrayColor];
+    lineView.backgroundColor = COLOR_SeparatorLine;
     
     self.yearReturnLabel = [[UILabel alloc] init];
     [self.contentView addSubview:self.yearReturnLabel];
@@ -196,6 +206,16 @@
         make.right.equalTo(_view.mas_right).with.offset(-15*WIDTH_Rate);
         make.size.mas_equalTo(CGSizeMake(75*HEIGHT_Rate, 75*HEIGHT_Rate));
     }];
+    
+    UIView *bottomLineView = [[UIView alloc] init];
+    [whiteView addSubview:bottomLineView];
+    [bottomLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(whiteView.mas_bottom);
+        make.left.equalTo(whiteView.mas_left);
+        make.right.equalTo(whiteView.mas_right);
+        make.height.mas_equalTo(@1);
+    }];
+    bottomLineView.backgroundColor = COLOR_SeparatorLine;
     
 }
 
